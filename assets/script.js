@@ -44,6 +44,8 @@ function generatePassword(){
     var rand = Math.floor(Math.random() * newArr.length)
     newPassword = newPassword + newArr[rand]
   }
+  
+  return newPassword
 }
 
 // Get references to the #generate element
