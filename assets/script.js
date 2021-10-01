@@ -19,8 +19,30 @@ function generatePassword(){
   var upperConfirm = confirm('Do you want upper chars')
   var lowerConfirm = confirm('Do you want lower chars')
 
-  if(!specialConfirm && !numberConfirm && !lowerConfirm && !upperConfirm){
+  if(specialConfirm === false && numberConfirm === false && lowerConfirm === false && upperConfirm === false){
     alert('Requires a selection')
+    
+    return
+  }
+
+  if(specialConfirm){
+    newArr = newArr.concat(specialArr)
+  }
+  if(numberConfirm){
+    newArr = newArr.concat(numberArr)
+  }
+  if(upperConfirm){
+    newArr = newArr.concat(upperArr)
+  }
+  if(lowerConfirm){
+    newArr = newArr.concat(lowerArr)
+  }
+
+  var newPassword = ''
+
+  for(let i = 0; i < pwLength; i++){
+    var rand = Math.floor(Math.random() * newArr.length)
+    newPassword = newPassword + newArr[rand]
   }
 }
 
